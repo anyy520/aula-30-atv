@@ -1,5 +1,4 @@
 
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -7,7 +6,7 @@ const Constraint = Matter.Constraint;
 var engine, world, backgroundImg;
 var canvas, angle, tower, ground, cannon;
 // 5.crie uma matriz vazia
-var balls = [];
+
 
 
 function preload() {
@@ -40,37 +39,25 @@ function draw() {
   ground.display();
 
  
-//7 e 8 Crie um laço de repetição
-for (var i = 0; i < balls.length; i++) {
-  showCannonBalls(balls[i], i);
-}
+//7. Crie um laço de repetição e 8.chamar showCannonBalls() várias vezes.
+
+  
 
   cannon.display();
   tower.display();
 
   
 }
-// 6.crie uma função de acionamento de tecla
-function keyPressed() {
-  if (keyCode === DOWN_ARROW) {
-    var cannonBall = new CannonBall(cannon.x, cannon.y);
-    balls.push(cannonBall);
-  }
-}
+//6.crie uma função de acionamento de tecla
+
 
 
 // 9. Crie uma função para exibir a bala
-function showCannonBalls(ball, index) {
-  ball.display();
-  if (ball.body.position.x >= width || ball.body.position.y >= height - 50) {
-    // 10. Adicione a condição para verificar a posição da bala e remova a bala do mundo (World)
-    Matter.World.remove(world, ball.body);
-    // 11. Adicione splice() para remover os elementos da matriz.
 
-    balls.splice(index, 1);
-  }
-}
 
+ // 10. Adicione a condição para verificar a posição da bala e remova a bala do mundo (World)
+
+ // 11. Adicione splice() para remover os elementos da matriz.
 
 
 function keyReleased() {
